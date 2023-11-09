@@ -1,0 +1,105 @@
+body {
+  background: honeydew;
+}
+
+.width{
+  position: relative;
+  height: 2.4em;
+  margin: 1.5em 1em;
+  padding: .2em;
+  border: 1px solid mediumturquoise;
+  border-radius: 5px;
+  font-size: 1.2em;
+  
+}
+
+.width:before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: .2em;
+  width: 0;
+  height: 2em;
+  padding: .2em;
+  background: mediumturquoise;
+  border-radius: 3px;
+  line-height: 2em;
+  cursor: pointer;
+}
+
+.width:before {
+  animation: width 5s forwards;
+}
+
+.paused {
+  position: relative;
+  height: 2.4em;
+  width: 5em;
+  margin: 1.5em 1em;
+  border-radius: 3px;
+  font-size: 1.2em;
+  background: mediumturquoise;
+  cursor: pointer;
+  animation: pause 5s infinite alternate backwards;
+  animation-play-state: paused;
+}
+
+.paused:hover {
+  animation-play-state:  running; 
+}
+
+/*Ball*/
+.block {
+  position: relative;
+  width:200px;
+  height:200px;
+  border: 1px solid black;
+  margin: 1.5em 1em;
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: blue;
+  animation: bounce 5s linear forwards infinite, moveLeft 5s linear forwards infinite;
+}
+
+@keyframes moveLeft {
+  from {left: 0;}
+  to   {left: 180px;}
+}
+
+@keyframes bounce {
+  0% {
+    top: 0;
+  }
+  20% {
+    top: 180px;
+  }
+  40% {
+    top: 130px;
+  }
+  60% {
+    top: 180px;
+  }
+  80% {
+    top: 160px;
+  }
+  100% {
+    top: 180px;
+  }
+}
+
+@keyframes pause {
+  100%{
+    width: calc(100% - 2em);
+    }
+}
+
+@keyframes width {
+  100%{
+    width: calc(90% - 0.8em);
+    }
+}
